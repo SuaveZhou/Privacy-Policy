@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="content-type" content="text/html;charset=utf-8">
+    <meta name="viewport"
+        content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="screen-orientation" content="portrait" />
+    <meta name="format-detection" content="telephone=no">
+    <meta name="full-screen" content="yes">
+    <meta name="x5-fullscreen" content="true">
+    <title>APP下载（提取码：cj0e）</title>
+    <link rel="stylesheet" href="./css/base.css?v=1.03" />
+    <link rel="stylesheet" href="./css/style3.css" />
+</head>
+
+<body>
+    <div class="app style3 theme1">
+        <div class="img-cover">
+            <img id="eCover" src="./imgs/cover.jpeg" alt="">
+        </div>
+        <a id="eDownUrl" href="" class="btn-img">
+            <img id="eBtnImg" src="./imgs/btn.png" alt="">
+        </a>
+        <a href="" class="log-img">
+            <img id="eLogo" src="./imgs/logo.png" alt="">
+        </a>
+    </div>
+
+    <script type="text/javascript">
+        var $ = function (ele) {
+            return document.querySelector(ele);
+        }
+        //配置
+        var config = {
+            cover: './imgs/cover.jpeg', //自定义封面图
+            iPhone_download_url: "https://tiancgame.lanzouo.com/b00wj3l8j", // iPhone下载链接
+            android_download_url: "https://tiancgame.lanzouo.com/b00wj3l8j", // Android下载链接
+            logo : "./imgs/logo.png", //自定义logo图
+            btn_img : "./imgs/btn.png", //自定义下载按钮图表
+            open_app_url: "https://tiancgame.lanzouo.com/b00wj3l8j"
+        }
+        var env = function () {
+            var inBrowser = typeof window !== 'undefined'
+            var UA = inBrowser && window.navigator.userAgent.toLowerCase();
+            return {
+                isAndroid: UA && UA.indexOf('android') > 0,
+                isIOS: UA && /iphone|ipad|ipod|ios/.test(UA),
+                isWechat: UA && UA.indexOf('micromessenger') > -1
+            }
+        }
+
+        window.onload = function () {
+            var eDownUrl = $('#eDownUrl');
+            var eLogo = $('#eLogo');
+            var eCover = $('#eCover');
+            var eBtnImg = $('#eBtnImg');
+
+            if (env().isAndroid) {
+                open_app_url = config.android_download_url;
+            } else {
+                open_app_url = config.iPhone_download_url;
+            }
+            eDownUrl.href = open_app_url
+
+            //设置封面
+            eCover.src = config.cover;
+            eLogo.src = config.logo;
+            eBtnImg.src = config.btn_img;
+        }
+    </script>
+</body>
+
+</html>
